@@ -1,11 +1,9 @@
 import Image from "next/image";
-import ImportHistory from "./components/ImportHistory"
 
 export default function Home() {
   return (
-    <div>
-   
-      <ImportHistory/>
+    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+     <h1 className="bg-red-800">jbv,jb mnb</h1>
     </div>
   );
 }
