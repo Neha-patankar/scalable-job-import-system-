@@ -38,9 +38,9 @@ export default function JobSystemHistory() {
     );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-pink-50 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-200 to-indigo-200 p-6">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 mb-2">
+        <h1 className="text-3xl font-bold text-gray-800 mb-2 items-center">
           📊 Import History Dashboard
         </h1>
         <p className="text-gray-500 mb-6">
@@ -50,13 +50,14 @@ export default function JobSystemHistory() {
         <div className="bg-white rounded-xl shadow-lg overflow-x-auto">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="bg-indigo-600 text-white text-sm uppercase tracking-wide">
-                <th className="px-4 py-3 text-left">Source URL</th>
+              <tr className="bg-blue-950 text-white text-sm uppercase tracking-wide">
+                <th className="px-4 py-3 text-left">File Name</th>
+                 <th className="px-4 py-3 text-left">Imported Date&Time</th>
                 <th className="px-4 py-3 text-left">Total</th>
                 <th className="px-4 py-3 text-left">New</th>
                 <th className="px-4 py-3 text-left">Updated</th>
                 <th className="px-4 py-3 text-left">Failed</th>
-                <th className="px-4 py-3 text-left">Imported At</th>
+               
               </tr>
             </thead>
             <tbody>
@@ -80,6 +81,9 @@ export default function JobSystemHistory() {
                     <td className="px-4 py-3 text-sm text-gray-700 break-all max-w-xs">
                       {log.fileName}
                     </td>
+                     <td className="px-4 py-3 text-sm text-gray-600">
+                      {new Date(log.timestamp).toLocaleString()}
+                    </td>
                     <td className="px-4 py-3 font-medium text-gray-800">
                       {log.totalFetched}
                     </td>
@@ -92,9 +96,7 @@ export default function JobSystemHistory() {
                     <td className="px-4 py-3 font-semibold text-red-600">
                       {log.failedJobs?.length || 0}
                     </td>
-                    <td className="px-4 py-3 text-sm text-gray-600">
-                      {new Date(log.timestamp).toLocaleString()}
-                    </td>
+                   
                   </tr>
                 ))
               )}
